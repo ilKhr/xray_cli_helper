@@ -43,7 +43,7 @@ def delete_subscription_file(sub_filename):
             os.remove(file_path)
             print(f"Файл подписки {sub_filename} удален.")
 
-def update_all_subs(user_metadata_file='user_metadata.json'):
+def update_all_subs(user_metadata_file=USER_METADATA_FILE):
     """Обновляет файлы для всех существующих пользователей"""
     try:
         with open(user_metadata_file, 'r') as f:
