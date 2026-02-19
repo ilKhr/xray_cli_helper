@@ -1,8 +1,10 @@
 import json
 import uuid
 import secrets
+from generate_subs import update_subscription
+from settings import USER_METADATA_FILE, XRAY_CONFIG_FILE
 
-def add_user(name, user_metadata_file='user_metadata.json', config_file='config.json'):
+def add_user(name, user_metadata_file=USER_METADATA_FILE, config_file=XRAY_CONFIG_FILE):
     # Загружаем существующие данные
     with open(user_metadata_file, 'r') as f:
         metadata = json.load(f)
@@ -49,6 +51,9 @@ def add_user(name, user_metadata_file='user_metadata.json', config_file='config.
     print(f"Пользователь '{name}' добавлен!")
     print(f"UUID: {new_uuid}")
     print(f"ShortId: {new_short_id}")
+
+    sub_file = update_subscription(name, user_metadata_file)
+    print(f"Файл подписки создан: {sub_file}")
 
     return new_uuid, new_short_id
 

@@ -1,6 +1,7 @@
 import json
 import urllib.parse
 import socket
+from settings import USER_METADATA_FILE
 
 def get_server_ip():
     """Получает внешний IP адрес сервера"""
@@ -20,7 +21,7 @@ def get_server_ip():
         except:
             return None
 
-def generate_user_url(name, user_metadata_file='user_metadata.json'):
+def generate_user_url(name, user_metadata_file=USER_METADATA_FILE):
     # Загружаем данные
     with open(user_metadata_file, 'r') as f:
         metadata = json.load(f)

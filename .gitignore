@@ -1,2 +1,7 @@
 config.json
 user_metadata.json
+
+.env
+__pycache__/
+*.pyc
+xraysubs
