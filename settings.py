@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 # Загружаем переменные из .env
 load_dotenv()
 
+print(f"DEBUG: Путь из env: {os.getenv('USER_METADATA_FILE')}")
+
 # Вспомогательная функция для получения путей
 def get_env(key, default=None):
     return os.getenv(key, default)
