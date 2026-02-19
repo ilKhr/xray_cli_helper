@@ -1,0 +1,86 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [],
+        "decryption": "none"
+      },
+      "fallbacks": [
+        {
+          "dest": 8080
+        },
+        {
+          "alpn": "h2",
+          "dest": 8080
+        },
+        {
+          "alpn": "http/1.1",
+          "dest": 8080
+        }
+      ],
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "dest": "TODO::443",
+          "serverNames": [
+            "TODO:",
+            "www.TODO:"
+          ],
+          "privateKey": "TODO:",
+          "shortIds": [],
+          "minClientVer": "1.8.23",
+          "fingerprint": "randomized"
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ]
+      },
+      "port": 443
+    },
+    {
+      "listen": "0.0.0.0",
+      "port": 1080,
+      "protocol": "mixed",
+      "settings": {
+        "auth": "password",
+        "accounts": [
+          {
+            "user": "TODO:",
+            "pass": "TODO:"
+          }
+        ],
+        "udp": true,
+        "ip": "127.0.0.1"
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      },
+      "tag": "socks-inbound"
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    }
+  ]
+}

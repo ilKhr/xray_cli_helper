@@ -1,0 +1,10 @@
+{
+    "server": {
+        "dest": "TODO:443",
+        "serverName": "TODO:",
+        "port": 443,
+        "publicKey": "TODO:",
+        "shortIds": []
+    },
+    "users": {}
+}
