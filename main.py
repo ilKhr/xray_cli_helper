@@ -5,7 +5,7 @@ from add_user import add_user
 from remove_user import remove_user_by_name
 from get_url import get_user_url, get_server_ip
 from generate_subs import update_all_subs
-from settings import USER_METADATA_FILE
+from settings import USER_METADATA_FILE, SUBS_PORT
 
 def main():
     print("\n--- Xray User Manager ---")
@@ -44,7 +44,7 @@ def main():
 
                 if sub_file:
                     ip = get_server_ip()
-                    print(f"Ссылка на подписку: http://{ip}/xraysubs/{sub_file}")
+                    print(f"Ссылка на подписку: http://{ip}:{SUBS_PORT}/xraysubs/{sub_file}")
                 else:
                     print("Файл подписки еще не создан для этого пользователя.")
             except FileNotFoundError:

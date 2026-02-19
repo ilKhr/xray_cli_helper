@@ -16,6 +16,7 @@ USER_METADATA_FILE = get_env('USER_METADATA_FILE', os.path.join(PROJECT_ROOT, 'u
 XRAY_CONFIG_FILE = get_env('XRAY_CONFIG_FILE', os.path.join(PROJECT_ROOT, 'config.json'))
 
 # Настройки подписок
+SUBS_PORT = get_env('SUBS_PORT', '35679')
 SUBS_DIRECTORY = get_env('SUBS_DIRECTORY', '/var/www/html/xraysubs')
 
 # Проверка папки подписок
